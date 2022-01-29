@@ -11,7 +11,7 @@ public class Driver : MonoBehaviour
     [Header("props")]
     [Tooltip("steer")]
     [SerializeField]
-    private float steerSpeed = 0.01f;
+    private float steerSpeed = 1f;
 
     [SerializeField]
     private float moveSpeed = 0.01f;
@@ -25,7 +25,9 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, steerSpeed); //rotate
-        transform.Translate(0, moveSpeed, 0);
+        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
+        float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        transform.Rotate(0, 0, -steerAmount); //rotate
+        transform.Translate(0, moveAmount, 0);
     }
 }
