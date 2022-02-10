@@ -6,9 +6,22 @@ using UnityEngine.UI;
 public class DriverCollision : MonoBehaviour
 {
     [SerializeField]
+    private Color32 hasPackageColour = new Color32(1,1,1,1);
+
+    [SerializeField]
+    private Color32 noPackageColour = new Color32(1, 1, 1, 1);
+
+    [SerializeField]
     private int scoreToAdd = 5;
 
     private bool hasPackage;
+
+    SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void OnCollisionEnter2D(Collision2D c)
     {
@@ -27,6 +40,7 @@ public class DriverCollision : MonoBehaviour
             print("picked up");
             
             hasPackage = true;
+            spriteRenderer.color = hasPackageColour;
             Destroy(c.gameObject);
         }
 
@@ -34,6 +48,7 @@ public class DriverCollision : MonoBehaviour
         {
             print("reached");
             FindObjectOfType<CartScoreRecored>().ScoreTracking(scoreToAdd);
+            spriteRenderer.color = noPackageColour;
             hasPackage = false;
         }
     }

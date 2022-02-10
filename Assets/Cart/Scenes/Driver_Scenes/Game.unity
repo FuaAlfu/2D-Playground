@@ -12122,6 +12122,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 351678246}
     m_Modifications:
+    - target: {fileID: 5424221451561305526, guid: d475fd8b83627664383b729043788715, type: 3}
+      propertyPath: noPackageColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424221451561305526, guid: d475fd8b83627664383b729043788715, type: 3}
+      propertyPath: hasPackageColour.rgba
+      value: 4278190323
+      objectReference: {fileID: 0}
     - target: {fileID: 5424221451561305529, guid: d475fd8b83627664383b729043788715, type: 3}
       propertyPath: moveSpeed
       value: 31
