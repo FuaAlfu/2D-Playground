@@ -11079,7 +11079,7 @@ GameObject:
   - component: {fileID: 1081562660}
   m_Layer: 0
   m_Name: House 1
-  m_TagString: Untagged
+  m_TagString: SlowUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11460,7 +11460,7 @@ GameObject:
   - component: {fileID: 1188362774}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Boost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11944,7 +11944,7 @@ GameObject:
   - component: {fileID: 1861728486}
   m_Layer: 0
   m_Name: House 2
-  m_TagString: Untagged
+  m_TagString: SlowUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

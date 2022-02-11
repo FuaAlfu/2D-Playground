@@ -30,6 +30,10 @@ public class DriverCollision : MonoBehaviour
         //{
         //    print("touch");
         //}
+        if(c.gameObject.CompareTag("SlowUp"))
+        {
+            GetComponent<Driver>().SlowSpeed();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D c)
@@ -50,6 +54,11 @@ public class DriverCollision : MonoBehaviour
             FindObjectOfType<CartScoreRecored>().ScoreTracking(scoreToAdd);
             spriteRenderer.color = noPackageColour;
             hasPackage = false;
+        }
+
+        if(c.tag == "Boost")
+        {
+            GetComponent<Driver>().BoostSpeed();
         }
     }
 }
