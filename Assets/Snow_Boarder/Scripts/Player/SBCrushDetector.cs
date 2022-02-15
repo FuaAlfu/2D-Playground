@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 2022.2.14
@@ -8,11 +9,19 @@ using UnityEngine;
 
 public class SBCrushDetector : MonoBehaviour
 {
+    [SerializeField]
+    private float timer = .5f;
     private void OnCollisionEnter2D(Collision2D c)
     {
         if (c.gameObject.CompareTag("terrine"))
         {
             print("HIT...");
+            //Invoke("LoadScene", timer);
         }
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }
