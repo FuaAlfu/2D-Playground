@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 public class SBFinishedLine : MonoBehaviour
 {
     [SerializeField]
+    private ParticleSystem finidhedVfX;
+
+    [SerializeField]
     private float timer = 1.5f;
 
     private void OnTriggerEnter2D(Collider2D c)
@@ -17,6 +20,7 @@ public class SBFinishedLine : MonoBehaviour
         if(c.gameObject.CompareTag("Player"))
         {
             print("finished...");
+            finidhedVfX.Play();
             //Invoke("LoadScene", timer);
         }
     }
