@@ -21,6 +21,7 @@ public class SBFinishedLine : MonoBehaviour
         {
             print("finished...");
             finidhedVfX.Play();
+            GetComponent<AudioSource>().Play();
             //Invoke("LoadScene", timer);
         }
     }
