@@ -22,6 +22,7 @@ public class SBCrushDetector : MonoBehaviour
     {
         if (c.gameObject.CompareTag("terrine"))
         {
+            FindObjectOfType<SBPlayerController>().DisableControls();
             print("HIT...");
             crushedVfX.Play();
             GetComponent<AudioSource>().PlayOneShot(cushClipSFX);
