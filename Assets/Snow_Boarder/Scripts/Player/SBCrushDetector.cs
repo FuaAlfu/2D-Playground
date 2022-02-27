@@ -18,10 +18,13 @@ public class SBCrushDetector : MonoBehaviour
     [SerializeField]
     AudioClip cushClipSFX;
 
+    private bool hasCrashed = false;
+
     private void OnCollisionEnter2D(Collision2D c)
     {
-        if (c.gameObject.CompareTag("terrine"))
+        if (c.gameObject.CompareTag("terrine") && !hasCrashed)
         {
+            hasCrashed = true;
             FindObjectOfType<SBPlayerController>().DisableControls();
             print("HIT...");
             crushedVfX.Play();
