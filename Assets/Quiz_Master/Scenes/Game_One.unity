@@ -1143,6 +1143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qQuestions: {fileID: 11400000, guid: 0b317f3d724c3704b809bd9ee6674af7, type: 2}
   text: {fileID: 957756911}
+  buttons:
+  - {fileID: 4589246419164863879}
 --- !u!1 &1771712371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,3 +1566,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
+--- !u!1 &4589246419164863879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4589246419662751333, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
+  m_PrefabInstance: {fileID: 4589246419164863878}
+  m_PrefabAsset: {fileID: 0}

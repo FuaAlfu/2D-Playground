@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: New Question 2
   m_EditorClassIdentifier: 
   question: Do you belive in her? (^)
+  answers:
+  - first
+  - 
+  - 
+  - 
+  correctAnswerIndex: 0

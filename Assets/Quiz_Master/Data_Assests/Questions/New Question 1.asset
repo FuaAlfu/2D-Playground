@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: New Question 1
   m_EditorClassIdentifier: 
   question: What's your fav video game?
+  answers:
+  - first
+  - 
+  - 
+  - 
+  correctAnswerIndex: 0
