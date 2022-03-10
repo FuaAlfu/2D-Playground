@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// 2022.3.8
@@ -13,15 +14,23 @@ public class QQuiz : MonoBehaviour
     QQuestionsSO qQuestions;
 
     [SerializeField]
-    TextMeshProUGUI text;
+    TextMeshProUGUI questionText;
 
     [SerializeField]
     GameObject[] buttons;
 
+    [SerializeField]
+    Sprite defaultAnsweSprite;
+
+    [SerializeField]
+    Sprite correctAnsweSprite;
+
+    int correctAnswerIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        text.text = qQuestions.GetQuestion();
+        questionText.text = qQuestions.GetQuestion();
 
         for(int i = 0; i < buttons.Length; i++)
         {
@@ -29,9 +38,9 @@ public class QQuiz : MonoBehaviour
             buttonTxt.text = qQuestions.GetAnswer(i);
         }
 
-        /* for testing
+        /* for testing, return the first element..s
             TextMeshProUGUI buttonTxt = buttons[0].GetComponentInChildren<TextMeshProUGUI>();
-            buttonTxt.text = qQuestions.GetAnswer(0);
+            buttonTxt.questionText = qQuestions.GetAnswer(0);
          */
     }
 
@@ -39,5 +48,26 @@ public class QQuiz : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnAnswerSelected(int index)
+    {
+        Image buttonImage;
+
+        if (index == qQuestions.GetCorrectAnswerIndex())
+        {
+            questionText.text = "Correct";
+            buttonImage = buttons[index].GetComponent<Image>();
+            buttonImage.sprite = correctAnsweSprite;
+        }
+        else
+        {
+            correctAnswerIndex = qQuestions.GetCorrectAnswerIndex();
+            string correctAnswer = qQuestions.GetAnswer(correctAnswerIndex);
+            questionText.text = "the correct answer was:\n" + correctAnswer;
+
+            buttonImage = buttons[correctAnswerIndex].GetComponent<Image>();
+            buttonImage.sprite = correctAnsweSprite;
+        }
     }
 }

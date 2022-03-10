@@ -11,7 +11,7 @@ public class QQuestionsSO : ScriptableObject
 {
     [TextArea(2,6)]
     [SerializeField]
-    string question = "Enter new question text here";
+    string question = "Enter new question questionText here";
 
     [SerializeField]
     string[] answers = new string[4];
@@ -24,7 +24,7 @@ public class QQuestionsSO : ScriptableObject
         return question;
     }
 
-    public int CorrectAnserIndex()
+    public int GetCorrectAnswerIndex()
     {
         return correctAnswerIndex;
     }

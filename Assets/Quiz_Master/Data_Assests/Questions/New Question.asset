@@ -15,7 +15,7 @@ MonoBehaviour:
   question: What is variable?
   answers:
   - first
-  - 
-  - 
-  - 
+  - second
+  - third
+  - fourth
   correctAnswerIndex: 0
