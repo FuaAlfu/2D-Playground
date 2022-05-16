@@ -16,10 +16,10 @@ public class SBPlayerController : MonoBehaviour
     [SerializeField]
     private float boostUp = 30f;
 
-    [SerializeField]
-    private float baseSpeed = 20f;
+   
+    public float baseSpeed = 20f;
 
-    bool canMove = true;
+    public bool canMove = true;
 
     Rigidbody2D rb2D;
     SurfaceEffector2D SurfaceEffector2D;
@@ -34,21 +34,17 @@ public class SBPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (canMove == true)
         {
             RotatePlayerController();
             RespondToBoost();
-        }
-    }
-
-    public void DisableControls()
-    {
-        canMove = false;
+         }
     }
 
     private void RespondToBoost()
     {
-        if(Input.GetKey(KeyCode.UpArrow))
+      
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
         {
             SurfaceEffector2D.speed = boostUp;
         }
@@ -60,13 +56,13 @@ public class SBPlayerController : MonoBehaviour
 
     private void RotatePlayerController()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb2D.AddTorque(totqueAmount);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rb2D.AddTorque(-totqueAmount);
-        }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb2D.AddTorque(totqueAmount);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb2D.AddTorque(-totqueAmount);
+            }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,13 @@ public class CartScoreRecored : MonoBehaviour
     private int addPointForTest;
 
     [SerializeField]
+    GameObject[] allBoxes;
+
+    [SerializeField]
     Text addForTest;
+
+    [SerializeField]
+    GameObject g;
 
     private void Start()
     {
@@ -24,5 +31,15 @@ public class CartScoreRecored : MonoBehaviour
     {
         addPointForTest += add;
         addForTest.text = addPointForTest.ToString();
+
+        if(addPointForTest == allBoxes.Length)
+        {
+            ShowWinMessage();
+        }
+    }
+
+    private void ShowWinMessage()
+    {
+        g.SetActive(true);
     }
 }

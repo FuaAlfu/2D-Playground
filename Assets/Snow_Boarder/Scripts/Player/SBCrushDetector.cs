@@ -20,21 +20,40 @@ public class SBCrushDetector : MonoBehaviour
 
     private bool hasCrashed = false;
 
-    private void OnCollisionEnter2D(Collision2D c)
+    private void OnTriggerEnter2D(Collider2D c)
     {
         if (c.gameObject.CompareTag("terrine") && !hasCrashed)
         {
             hasCrashed = true;
-            FindObjectOfType<SBPlayerController>().DisableControls();
+            DisableControls();
             print("HIT...");
             crushedVfX.Play();
             GetComponent<AudioSource>().PlayOneShot(cushClipSFX);
-            //Invoke("LoadScene", timer);
+            Invoke("LoadScene", timer);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D c)
+    {
+        //if (c.gameObject.CompareTag("terrine") && !hasCrashed)
+        //{
+        //    hasCrashed = true;
+        //    DisableControls();
+        //    print("HIT...");
+        //    crushedVfX.Play();
+        //    GetComponent<AudioSource>().PlayOneShot(cushClipSFX);
+        //    //Invoke("LoadScene", timer);
+        //}
+    }
+
+     void DisableControls()
+    {
+        GetComponent<SBPlayerController>().canMove = false;
+        GetComponent<SBPlayerController>().baseSpeed = 0;
     }
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
 }
