@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// 2022.3.8
@@ -17,7 +18,7 @@ public class QQuiz : MonoBehaviour
     TextMeshProUGUI questionText;
 
     [SerializeField]
-    GameObject[] buttons;
+    GameObject[] answerButtons;
 
     [SerializeField]
     Sprite defaultAnsweSprite;
@@ -30,16 +31,11 @@ public class QQuiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questionText.text = qQuestions.GetQuestion();
-
-        for(int i = 0; i < buttons.Length; i++)
-        {
-            TextMeshProUGUI buttonTxt = buttons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonTxt.text = qQuestions.GetAnswer(i);
-        }
+        GetNextQuestion();
+       // DisplayQuestion();
 
         /* for testing, return the first element..s
-            TextMeshProUGUI buttonTxt = buttons[0].GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI buttonTxt = answerButtons[0].GetComponentInChildren<TextMeshProUGUI>();
             buttonTxt.questionText = qQuestions.GetAnswer(0);
          */
     }
@@ -57,7 +53,7 @@ public class QQuiz : MonoBehaviour
         if (index == qQuestions.GetCorrectAnswerIndex())
         {
             questionText.text = "Correct";
-            buttonImage = buttons[index].GetComponent<Image>();
+            buttonImage = answerButtons[index].GetComponent<Image>();
             buttonImage.sprite = correctAnsweSprite;
         }
         else
@@ -66,8 +62,45 @@ public class QQuiz : MonoBehaviour
             string correctAnswer = qQuestions.GetAnswer(correctAnswerIndex);
             questionText.text = "the correct answer was:\n" + correctAnswer;
 
-            buttonImage = buttons[correctAnswerIndex].GetComponent<Image>();
+            buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnsweSprite;
+        }
+        SetButtonState(false);
+    }
+
+    private void GetNextQuestion()
+    {
+        SetButtonState(true);
+        SetDefaultButtonSprite();
+        DisplayQuestion();
+    }
+
+    private void SetDefaultButtonSprite()
+    {
+       for(int i = 0; i < answerButtons.Length; i++)
+        {
+            Image buttonImage = answerButtons[i].GetComponent<Image>();
+            buttonImage.sprite = defaultAnsweSprite;
+        }
+    }
+
+    private void DisplayQuestion()
+    {
+        questionText.text = qQuestions.GetQuestion();
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            TextMeshProUGUI buttonTxt = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            buttonTxt.text = qQuestions.GetAnswer(i);
+        }
+    }
+
+    private void SetButtonState(bool state)
+    {
+        for(int i = 0; i < answerButtons.Length; i++)
+        {
+            Button button = answerButtons[i].GetComponent<Button>();
+            button.interactable = state;
         }
     }
 }
