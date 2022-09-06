@@ -280,6 +280,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1085749415}
     m_Modifications:
     - target: {fileID: 4589246419662751330, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
@@ -403,6 +404,7 @@ PrefabInstance:
       value: AnswerdButton(2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
 --- !u!224 &175024350 stripped
 RectTransform:
@@ -549,6 +551,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1085749415}
     m_Modifications:
     - target: {fileID: 4589246419662751330, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
@@ -672,6 +675,7 @@ PrefabInstance:
       value: AnswerdButton(3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
 --- !u!224 &437896822 stripped
 RectTransform:
@@ -727,8 +731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4227d7f1a135167489550ef31eab829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToCompleteQuestion: 20
-  timeToShowCorrectAnswer: 5
+  timeToCompleteQuestion: 5
+  timeToShowCorrectAnswer: 10
+  fillFraction: 0
   isAnsweringQuestion: 0
 --- !u!1 &957756909
 GameObject:
@@ -963,6 +968,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
@@ -1320,6 +1326,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -1483,6 +1490,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1491,6 +1499,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1085749415}
     m_Modifications:
     - target: {fileID: 4589246419662751330, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
@@ -1614,6 +1623,7 @@ PrefabInstance:
       value: AnswerdButton(1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
 --- !u!224 &1932242670 stripped
 RectTransform:
@@ -1701,6 +1711,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1085749415}
     m_Modifications:
     - target: {fileID: 4589246419662751330, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
@@ -1820,4 +1831,5 @@ PrefabInstance:
       value: AnswerdButton(0)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ad74f686bcb3046bbd01fd9d5e42cc, type: 3}
