@@ -19,6 +19,7 @@ public class TWalls : MonoBehaviour
             //c.gameObject.transform.position = new Vector3(x, y, 0) * Time.deltaTime;
             //target = transform.position + new Vector3(x, y, 0);
             c.gameObject.transform.position = new Vector2(x, y);
+            FindObjectOfType<TPointsBorder>().pointsCounter();
             print("cross");
         }
     }
