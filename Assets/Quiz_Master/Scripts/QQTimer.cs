@@ -92,4 +92,9 @@ public class QQTimer : MonoBehaviour
         //Debug.Log(timerVal);
         Debug.Log(isAnsweringQuestion + ": " + timerVal + " = " + fillFraction);
     }
+
+    public float GetFullFraction()
+    {
+        return fillFraction;
+    }
 }
