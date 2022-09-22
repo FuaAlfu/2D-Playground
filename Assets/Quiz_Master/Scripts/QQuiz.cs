@@ -36,16 +36,30 @@ public class QQuiz : MonoBehaviour
     [Header("Timer")]
     [SerializeField]
     Image timerImage;
-
     QQTimer timer;
+
+    [Header("Score")]
+    [SerializeField]
+    TextMeshProUGUI scoreText;
+    QQScoreKeeper scoreKeeper;
+
+    [Header("ProgressBar")]
+    [SerializeField]
+    Slider progressBar;
+
 
     int correctAnswerIndex;
     bool hasAnsweredEarly;
+
+    public bool isComplate;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = FindObjectOfType<QQTimer>();
+        scoreKeeper = FindObjectOfType<QQScoreKeeper>();
+        progressBar.maxValue = questions.Count;
+        progressBar.value = 0;
 
         // GetNextQuestion();
         // DisplayQuestion();
@@ -80,6 +94,12 @@ public class QQuiz : MonoBehaviour
         SetButtonState(false);
         
         timer.CancelTimer();
+        scoreText.text = "Score: " + scoreKeeper.CalculateScore() + "%";
+
+        if(progressBar.value == progressBar.maxValue)
+        {
+            isComplate = true;
+        }
     }
 
     void GetRandomQuestion()
@@ -101,6 +121,7 @@ public class QQuiz : MonoBehaviour
             questionText.text = "Correct";
             buttonImage = answerButtons[index].GetComponent<Image>();
             buttonImage.sprite = correctAnsweSprite;
+            scoreKeeper.SetCorrectAnswers();
         }
         else
         {
@@ -121,6 +142,8 @@ public class QQuiz : MonoBehaviour
             SetDefaultButtonSprite();
             GetRandomQuestion();
             DisplayQuestion();
+            progressBar.value++;
+            scoreKeeper.SetQuestionsSeen();
         }
     }
 

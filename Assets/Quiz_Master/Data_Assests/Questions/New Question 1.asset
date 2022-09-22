@@ -15,7 +15,7 @@ MonoBehaviour:
   question: What's your fav video game?
   answers:
   - first
-  - 
-  - 
-  - 
-  correctAnswerIndex: 0
+  - s
+  - t
+  - f
+  correctAnswerIndex: 2
