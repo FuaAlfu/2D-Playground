@@ -137,3 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounce: {x: 0, y: 2.1}
+  prefabe: {fileID: 9165220549479159927, guid: c2cdb286726d12746be2bc68a06cdecb, type: 3}

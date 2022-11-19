@@ -222,6 +222,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -300,8 +301,8 @@ MonoBehaviour:
   - {x: 0.08, y: 0.08, z: 0}
   - {x: 0.08, y: -0.08, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 1017837259}
-  m_InstanceId: 27646
+  m_Mesh: {fileID: 1046093840}
+  m_InstanceId: 41280
 --- !u!61 &82857063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -394,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tailPrefab: {fileID: 6425496459548301364, guid: 1cd19e0989ea7594e8d1fcfa67e19f72, type: 3}
   scoreQ: {fileID: 11400000, guid: 5051b593cdb472242a1c43752e914b20, type: 2}
+  speed: 100
 --- !u!50 &82857066
 Rigidbody2D:
   serializedVersion: 4
@@ -1189,14 +1191,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692601667}
   m_CullTransparentMesh: 1
---- !u!43 &1017837259
+--- !u!43 &1046093840
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  serializedVersion: 10
+  serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -1343,6 +1345,7 @@ Mesh:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.08, y: 0.08, z: 0}
   m_MeshUsageFlags: 0
+  m_CookingOptions: 30
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 1

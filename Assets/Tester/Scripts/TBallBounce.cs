@@ -10,7 +10,11 @@ using UnityEngine;
 public class TBallBounce : MonoBehaviour
 {
     [SerializeField]
-    Vector2 bounce = new Vector2(0,2.1f);
+    Vector2 bounce = new Vector2(11f,2.1f);
+
+    [SerializeField]
+    GameObject prefabe;
+
     Rigidbody2D rb;
     void Start()
     {
@@ -21,6 +25,11 @@ public class TBallBounce : MonoBehaviour
         if(c.gameObject.CompareTag("Ground"))
         {
             StartCoroutine(Bouncing());
+        }
+
+        if (c.gameObject.CompareTag("Boost"))
+        {
+            BouncingOnPlate();
         }
     }
 
@@ -35,6 +44,13 @@ public class TBallBounce : MonoBehaviour
     private void BallBounce()
     {
         rb.velocity = bounce;
-        Destroy(this.gameObject, 1.2f);
+        TGamesSession.Instance.BlobSFX();
+        Instantiate(prefabe, transform.position, Quaternion.identity);
+        Destroy(this.gameObject, 0.1f);
+    }
+
+    void BouncingOnPlate()
+    {
+        rb.velocity = bounce;
     }
 }

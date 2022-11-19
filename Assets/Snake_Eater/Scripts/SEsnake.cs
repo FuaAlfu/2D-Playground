@@ -16,6 +16,9 @@ public class SEsnake : MonoBehaviour
     [SerializeField]
     ScoreQ scoreQ;
 
+    [SerializeField]
+    float speed = 2f;
+
     Vector2 dir = Vector2.right;
     List<Transform> tail = new List<Transform>();
 
@@ -60,7 +63,7 @@ public class SEsnake : MonoBehaviour
 
     void Move()
     {
-        this.transform.Translate(dir);
+        this.transform.Translate(dir * speed * Time.deltaTime);
         Vector2 v = transform.position;
 
         if (ate)
