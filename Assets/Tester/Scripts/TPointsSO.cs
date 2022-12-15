@@ -11,8 +11,15 @@ public class TPointsSO : ScriptableObject
 {
     public float point;
 
+    public int p;
+
     public float PointToAdd()
     {
         return point;
+    }
+
+    public int PointsToAddForTable()
+    {
+        return p;
     }
 }

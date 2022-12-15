@@ -11,7 +11,7 @@ public class TGamesSession : MonoBehaviour
     public static TGamesSession Instance { get; private set; }
 
     [SerializeField]
-    int hits = 0;
+    int hitsToShowOnBoard = Mathf.Max(0, 1000);  //0
 
     [SerializeField]
     TextMeshProUGUI text;
@@ -37,7 +37,8 @@ public class TGamesSession : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "track: " + hits.ToString();
+        //  text.text = "track: " + hitsToShowOnBoard.ToString();
+        text.text =  hitsToShowOnBoard.ToString();
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -45,14 +46,40 @@ public class TGamesSession : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //HitCounter();
+        //PlusHitCounter();
     }
 
-   public void HitCounter(int hit)
+   public void PlusHitCounter(int hit)
     {
-         hits += hit;
-        text.text = "track: " + hits.ToString();
-        text.text = "track: " + hits.ToString();
+         hitsToShowOnBoard += hit;
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        text.text = hitsToShowOnBoard.ToString();
+    }
+
+    public void SubstractHitCounter(int hit)
+    {
+        //if(hit == 0 && hit < 0)
+        //{
+        // && Mathf.Clamp(0, Mathf.Infinity)
+        //   hitsToShowOnBoard = 0;
+        //}
+        //else if(hit > 0 && hit != 0)
+        //{
+        // hitsToShowOnBoard -= hit;
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        // text.text = hitsToShowOnBoard.ToString();
+        //   }
+        hitsToShowOnBoard -= hit;
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        // text.text = "track: " + hitsToShowOnBoard.ToString();
+        text.text = hitsToShowOnBoard.ToString();
+
+        if (hit == -10)
+        {
+            hitsToShowOnBoard = 0;
+        }
     }
 
     public void BlobSFX()

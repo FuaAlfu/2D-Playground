@@ -12,12 +12,12 @@ public class TGoal : MonoBehaviour
     {
         if (c.gameObject.GetComponent<TBallBounce>())
         {
-            TGamesSession.Instance.HitCounter(count);
+           // TGamesSession.Instance.PlusHitCounter(count);
         }
 
         //if (c.gameObject.GetComponent<TPlayer>())
         //{
-        //   TGamesSession.Instance.HitCounter(count);
+        //   TGamesSession.Instance.PlusHitCounter(count);
         //}
     }
 }

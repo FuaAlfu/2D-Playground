@@ -29,7 +29,7 @@ public class TPointsCaster : MonoBehaviour
             if (selection.CompareTag("Player"))
             {
                 counter++;
-                print("hits count:" + counter);
+                print("hitsToShowOnBoard count:" + counter);
             }
         }
     }
