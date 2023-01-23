@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>
@@ -10,11 +11,17 @@ public class TGamesSession : MonoBehaviour
 {
     public static TGamesSession Instance { get; private set; }
 
+    //[SerializeField]
+    //int hitsToShowOnBoard = Mathf.Max(0, 1000);  //0
+
     [SerializeField]
-    int hitsToShowOnBoard = Mathf.Max(0, 1000);  //0
+    float hitsToShowOnBoard = 10f;
 
     [SerializeField]
     TextMeshProUGUI text;
+
+    [SerializeField]
+    GameObject loseConditionsUI;
 
     [SerializeField]
     AudioClip blob;
@@ -49,7 +56,7 @@ public class TGamesSession : MonoBehaviour
         //PlusHitCounter();
     }
 
-   public void PlusHitCounter(int hit)
+   public void PlusHitCounter(float hit)
     {
          hitsToShowOnBoard += hit;
         // text.text = "track: " + hitsToShowOnBoard.ToString();
@@ -57,7 +64,7 @@ public class TGamesSession : MonoBehaviour
         text.text = hitsToShowOnBoard.ToString();
     }
 
-    public void SubstractHitCounter(int hit)
+    public void SubstractHitCounter(float hit)
     {
         //if(hit == 0 && hit < 0)
         //{
@@ -76,14 +83,25 @@ public class TGamesSession : MonoBehaviour
         // text.text = "track: " + hitsToShowOnBoard.ToString();
         text.text = hitsToShowOnBoard.ToString();
 
-        if (hit == -10)
+        if (hitsToShowOnBoard <= 0)
         {
             hitsToShowOnBoard = 0;
+            loseConditionsUI.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
     public void BlobSFX()
     {
         audioSource.PlayOneShot(blob);
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        loseConditionsUI.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        hitsToShowOnBoard = 2;
+        text.text = hitsToShowOnBoard.ToString();
     }
 }

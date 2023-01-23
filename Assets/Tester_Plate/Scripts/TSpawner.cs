@@ -14,6 +14,10 @@ public class TSpawner : MonoBehaviour
     [SerializeField]
     GameObject[] objectsToSpawns;
 
+    public bool testLose;
+    public bool testWint;
+    public bool testGame;
+
     private float timeBetweenSpawns;
     private float timeRset;
     // Start is called before the first frame update
@@ -26,7 +30,14 @@ public class TSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spawning();
+        if(testGame == true)
+        {
+            Spawning();
+        }
+        else if(testLose == true)
+        {
+            LoseTestGame();
+        }
     }
 
     private void Spawning()
@@ -37,6 +48,22 @@ public class TSpawner : MonoBehaviour
         if(timeBetweenSpawns <= 0)
         {
             Instantiate(objectsToSpawns[randomPorts], spoints[randomSpawns].position, spoints[randomSpawns].rotation);
+            timeBetweenSpawns = timeRset;
+        }
+        else
+        {
+            timeBetweenSpawns -= Time.deltaTime;
+        }
+    }
+
+    private void LoseTestGame()
+    {
+        int randomSpawns = UnityEngine.Random.Range(0, spoints.Length);
+        int randomPorts = UnityEngine.Random.Range(0, objectsToSpawns.Length);
+
+        if (timeBetweenSpawns <= 0)
+        {
+            Instantiate(objectsToSpawns[0], spoints[randomSpawns].position, spoints[randomSpawns].rotation);
             timeBetweenSpawns = timeRset;
         }
         else
